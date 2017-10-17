@@ -1,29 +1,3 @@
-
-% Formaliseerige arutlus Prologis. Esitage vastav päring.
-% Punamütsike on väike tüdruk. Kõik väiksed tüdrukud on lapsed. Iga laps on
-% uudishimulik. Järelikult Punamütsike on uudishimulik.
-% :-encoding(utf8).
-
-v2ike_tydruk(punamytsike).
-lapsed(X):- v2ike_tydruk(X).
-uudishimulik(X):- lapsed(X).
-
-väike_tydruk(punamytsike).
-lapsed(X):-väike_tydruk(X).
-uudishimulik(X):-lapsed(X).
-
-% Nõukase versioon: 
-
-
-onV2ike(v2iketydruk, punamytsike).
-onLaps(laps, v2iketydruk).
-onUudishimulik(laps).
-
-lahendus(X):-
-  onV2ike(V, X),
-  onLaps(L, V),
-  onUudishimulik(L).	
-
 % Kirjeldage Prologis nädalapäevadele naturaalarvude tsükliline liitmine. Näiteks
 % ?-liida(kolmapäev,2,X).
 % X=reede
@@ -50,42 +24,4 @@ liida(Nädalapäev, LiidetavArv, Uusnädalapäev):-
 
 test(X, Res) :-
     X =< 7 -> Res is X
-  ; Y is X - 7, test(Y, Res).	
-	
-% Koostage päring, millele antakse ette neljaelemendiline list ning mis kustutab sellest esimese
-% ja kolmanda elemendi, saades tulemuseks kaheelemendilise listi.
-neljanelistkaheseks([A,B,C,D],Kahene):-
-  Kahene = [B,D].
-	
-%oige2esimest
-%kustuta(X,Y,[X,Y|Tail],Tail).
-%?-kustuta(1,2[1,2,3,4],List).
-%kustuta(X,Y,[Head|Tail],[Head|NewList]):-
-	%kustuta(X,Y,Tail,NewList).
-
-%eemaldab2ja3 
-%?- remove2nd([1,2,3,4], X).
-remove2nd([], []).
-remove2nd([X], [X]).
-remove2nd([X, K, P|Z], [X|Z]).
-
-
-%eemaldab1ja3
-%?- eemaldaelemendid([1,2,3,4], X).
-eemaldaelemendid([], []).
-eemaldaelemendid([X], [X]).
-eemaldaelemendid([X, K, P|Z], [K|Z]).	
-	
-	
-%eemaldab1ja2
-%?- eemaldaelemendid12([1,2,3,4], X).
-eemaldaelemendid12([], []).
-eemaldaelemendid12([X], [X]).
-eemaldaelemendid12([X, K, P|Z], [P|Z]).	
-
-%eemaldab1
-%?- eemaldaelemendid1([1,2,3,4], X).
-eemaldaelemendid1([], []).
-eemaldaelemendid1([X], [K]).
-eemaldaelemendid1([X, P|Z], [P|Z]).	
-%mida rohkem elemente, seda rohkem eemaldab	
+  ; Y is X - 7, test(Y, Res).
