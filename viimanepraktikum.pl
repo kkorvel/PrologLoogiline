@@ -1,17 +1,18 @@
-tryki_list([]).
+
+	tryki_list([]).
 tryki_list([X|Xs]):-
 	write(X), nl,
 	tryki_list(Xs).
-	
+
 kopeeri_list([],[]).
 kopeeri_list([X|Xs],[X|Xs]):-
 	kopeeri_list(Xs,Xs).
-	
+
 vastanda([],[]).
 vastanda([X|Xs],[Y|Ys]):-
 	Y is X * -1,
 	vastanda(Xs,Ys).
-	
+
 %lahenda(Tabel):-
 	%Tabel = 
 	%[[C01,C02,C03,C04,C05,C06],
@@ -94,10 +95,23 @@ lahenda(L62):-
 		nth1(M,Nimed,B),
 		\+ nth1(M,Voor2,A)),
 	member([L12,L22,L32,L42,L52,L62],Ps),
-	%member(Voor3,Ps),
-	%member(Voor4,Ps),
-	%member(Voor5,Ps),
+	member(Voor3,Ps),
+\+ (nth1(N,Nimed,A),
+		nth1(N,Voor3,B),
+		nth1(M,Nimed,B),
+		\+ nth1(M,Voor3,A)),
+member([L13,L23,L33,L43,L53,L63],Ps),
+	member(Voor4,Ps),
+\+ (nth1(N,Nimed,A),
+		nth1(N,Voor4,B),
+		nth1(M,Nimed,B),
+		\+ nth1(M,Voor4,A)),
+member([L14,L24,L34,L44,L54,L64],Ps),
+	member(Voor5,Ps),
+\+ (nth1(N,Nimed,A),
+		nth1(N,Voor5,B),
+		nth1(M,Nimed,B),
+		\+ nth1(M,Voor5,A)),
+member([L15,L25,L35,L4t,L5t,L65],Ps),
 	tryki_list(Tabel),
 	true.
-	
-	
