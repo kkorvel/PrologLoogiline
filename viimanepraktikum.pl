@@ -1,5 +1,5 @@
 
-	tryki_list([]).
+tryki_list([]).
 tryki_list([X|Xs]):-
 	write(X), nl,
 	tryki_list(Xs).
