@@ -59,6 +59,6 @@ lahenda(L62):-
 		nth1(N,Voor5,B),
 		nth1(M,Nimed,B),
 		\+ nth1(M,Voor5,A)),
-	member([L15,L25,L35,L4t,L5t,L65],Ps),
+	member([L15,L25,L35,L45,L55,L65],Ps),
 	tryki_list(Tabel),
 	true.
